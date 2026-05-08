@@ -1,0 +1,15 @@
+.title {
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+  font-size: 1em;
+  font-weight: var(--text-medium);
+}
+
+#chart {
+  padding: 1em 0.5em;
+  border: var(--border-card);
+  border-radius: var(--radius);
+  background-image: var(--stat-card-gradient);
+  background-repeat: no-repeat no-repeat;
+  background-size: cover, cover;
+}

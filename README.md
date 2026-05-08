@@ -2,6 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
 
+GlobalInsightsDashboard is a modern web dashboard built using Angular.
+It is designed to present global insights and structured data in a clean, responsive, and user-friendly interface.
+
+The project focuses on building a scalable front-end architecture with reusable components and a modular design approach, making it easy to expand with additional data sources and features in the future.
+
+## Key Features
+
+- Responsive dashboard layout for desktop and mobile
+- Clean and structured UI for data visualization
+- Modular Angular component architecture with fast development workflow
+- Easy scalability for adding new modules and services
+
+## Technologies Used
+
+- Angular (Frontend framework)
+- Angular CLI (Project scaffolding and build tools)
+- [Angular Material](https://material.angular.dev/) (Material Design components)
+- TypeScript (Main programming language)
+- HTML5 & CSS (UI structure and styling)
+- [APEXCHARTS](https://apexcharts.com/)
+<!-- - RxJS (Reactive programming) -->
+- API's:
+  - [Frankfurter](https://frankfurter.dev/) Exchange rates and currency data API
+  <!-- -  -->
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

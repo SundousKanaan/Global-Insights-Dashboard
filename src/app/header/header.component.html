@@ -1,0 +1,61 @@
+<header>
+  <button mat-icon-button (click)="handleClick()" class="menuButton">
+    <mat-icon>
+      @if (isMenuOpen) {
+        close
+      } @else {
+        menu
+      }
+    </mat-icon>
+  </button>
+
+  <div class="titleContainer">
+    <div class="imgContainer">
+      <img
+        src="../../assets/img/earth-icon.png"
+        alt="earth image as logo for the website"
+      />
+    </div>
+    <h1 class="title">
+      Global Insights <span class="lightText">Dashboard</span>
+    </h1>
+  </div>
+
+  <button mat-icon-button>
+    <mat-icon
+      [matBadge]="notificationsCount"
+      matBadgePosition="after"
+      matBadgeColor="warn"
+      [matBadgeHidden]="notificationsCount == 0"
+      [fontSet]="notificationsCount == 0 ? 'material-symbols-outlined' : ''"
+    >
+      <!-- @if (isMenuOpen) {
+        close
+      } @else {
+        menu
+      } -->
+      notifications
+    </mat-icon>
+    <!-- Include text description of the icon's meaning for screen-readers -->
+    <span class="cdk-visually-hidden">
+      notifications button icon with overlaid badge showing the number --
+    </span>
+  </button>
+
+  <a matButton="tonal" href="#" class="imgContainer">
+    <img
+      mat-card-image
+      src="../../assets/img/user-image.png"
+      alt="Photo of a Shiba Inu"
+    />
+  </a>
+
+  <form class="form">
+    <mat-icon class="searchIcon"> search </mat-icon>
+    <input
+      type="search"
+      placeholder="Search for a country..."
+      class="inputBar"
+    />
+  </form>
+</header>
