@@ -1,0 +1,92 @@
+.pageContent {
+  padding: 1em 0.2em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "rate temperature"
+    "gdp location"
+    "trends trends"
+    "population population"
+    "map map"
+    "weather nasa"
+    "updates updates";
+  gap: 1em;
+}
+
+.menu {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: 11em 1fr;
+    grid-template-areas: "menu content";
+  }
+
+  .pageContent {
+    padding-left: 1em;
+    grid-area: content;
+    grid-template-columns: repeat(3, 1fr) 25em;
+    grid-template-rows: auto auto 20em 20em;
+
+    grid-template-areas:
+      "rate temperature gdp location"
+      "trends trends trends population"
+      "map map weather nasa"
+      "updates updates updates updates";
+  }
+
+  .menu {
+    display: block;
+    grid-area: menu;
+    width: 100%;
+    height: 100%;
+    border: var(--border-card);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    background-image: var(--stat-card-gradient);
+    background-size: cover, cover;
+    background-repeat: no-repeat no-repeat;
+  }
+}
+
+.rate {
+  grid-area: rate;
+}
+
+.temperature {
+  grid-area: temperature;
+}
+
+.gdp {
+  grid-area: gdp;
+}
+
+.location {
+  grid-area: location;
+}
+
+.trends {
+  grid-area: trends;
+}
+
+.population {
+  grid-area: population;
+}
+
+.map {
+  grid-area: map;
+}
+
+.weather {
+  grid-area: weather;
+}
+
+.nasa {
+  grid-area: nasa;
+}
+
+.updates {
+  grid-area: updates;
+}

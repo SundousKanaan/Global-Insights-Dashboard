@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --font-text: "Inter", sans-serif;
+  --text-light: 300;
+  --text-medium: 500;
+  --text-bold: 600;
+
+  --bg-search: #222d4e;
+  --tc-placeholder: #758baf83;
+  --bg-body: #0f172a;
+  --primary: rgba(67, 136, 248, 0.39);
+  --text: #ffffff;
+  --box-shadow: 0 5px 0.9em rgba(0, 0, 0, 0.377);
+  --radius: 1em;
+  --radius-btn: 0.5em;
+
+  --card-color: rgba(67, 136, 248, 0.39);
+  --border-card: 0.1em solid var(--card-color);
+  --bg-gradient: radial-gradient(circle, rgba(67, 136, 248, 0.39), rgba(37, 99, 235, 0.15));
+  --stat-card-gradient: radial-gradient(circle, var(--card-color), var(--bg-body)), url("/assets/img/bg-stars.jpg");
+
+  --positive: #22c55e;
+  --negative: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: content-box; */
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-style: normal;
+  font-weight: var(--text-light);
+
+  display: grid;
+  padding: 0.5em;
+  padding-top: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    padding: 1em;
+  }
+}

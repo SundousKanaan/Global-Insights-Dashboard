@@ -1,0 +1,89 @@
+.stat-card {
+  min-width: 10em;
+  max-width: 100%;
+  height: 6em;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 0.05em var(--primary);
+  padding: 16px;
+  background-color: var(--bg-body);
+  background-image: var(--stat-card-gradient);
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    140% 170%,
+    cover;
+
+  position: relative;
+}
+
+.redCard {
+  --card-color: rgba(255, 0, 0, 0.308);
+  --stat-card-gradient: radial-gradient(circle, var(--card-color), var(--bg-body)), url("/assets/img/bg-stars.jpg");
+  box-shadow: 0 0 0 0.05em var(--card-color);
+}
+
+.greenCard {
+  --card-color: rgba(51, 255, 0, 0.308);
+  --stat-card-gradient: radial-gradient(circle, var(--card-color), var(--bg-body)), url("/assets/img/bg-stars.jpg");
+  box-shadow: 0 0 0 0.05em var(--card-color);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+  font-size: 14px;
+  margin-bottom: 1.5em;
+}
+
+.title {
+  font-size: 0.95em;
+  font-weight: var(--text-medium);
+  color: var(--text);
+}
+
+.card-body {
+  display: flex;
+  align-items: end;
+  gap: 0.5em;
+}
+
+.value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.location {
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+.change {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.change.positive {
+  color: var(--positive);
+}
+
+.change.negative {
+  color: var(--negative);
+}
+
+.locationImg {
+  width: 5em;
+  height: 4em;
+
+  position: absolute;
+  right: 0em;
+  bottom: 1em;
+
+  transform: rotate(-15deg);
+}
+
+.locationImg img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

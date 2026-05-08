@@ -1,0 +1,56 @@
+<main>
+  <div class="menu"></div>
+  <section class="pageContent">
+    <div class="rate">
+      <app-stat-card
+        *ngIf="!loading"
+        [title]="'Exchange Rate'"
+        [icon]="'paid'"
+        [value]="'$ ' + todayRate"
+        [change]="
+          changeRatePercent >= 0
+            ? '▲' + changeRatePercent + '%'
+            : '▼' + changeRatePercent + '%'
+        "
+        [changing]="changeRatePercent >= 0 ? 'positive' : 'negative'"
+        [loadingState]="loading"
+      ></app-stat-card>
+    </div>
+    <div class="temperature">
+      <app-stat-card
+        [title]="'Global Temperature'"
+        [icon]="'Thermostat'"
+        [value]="'27°C'"
+        [change]="'▲ 1.2%'"
+        [changing]="'negative'"
+        [colorClass]="'redCard'"
+      ></app-stat-card>
+    </div>
+    <div class="gdp">
+      <app-stat-card
+        [title]="'World GDP'"
+        [icon]="'chart'"
+        [value]="'$ 188.3T'"
+        [change]="'▲ 2.1%'"
+        [changing]="'positive'"
+        [colorClass]="'greenCard'"
+      ></app-stat-card>
+    </div>
+    <div class="location">
+      <app-stat-card
+        [title]="'ISS Location'"
+        [value]="'Over South America'"
+      ></app-stat-card>
+    </div>
+
+    <div class="trends">
+      <app-area-chart></app-area-chart>
+    </div>
+    <div class="population">
+      <app-donut-chart></app-donut-chart>
+    </div>
+    <div class="map"></div>
+    <div class="weather"></div>
+    <div class="updates"></div>
+  </section>
+</main>
