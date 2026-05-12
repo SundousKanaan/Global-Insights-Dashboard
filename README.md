@@ -16,15 +16,16 @@ The project focuses on building a scalable front-end architecture with reusable 
 
 ## Technologies Used
 
-- Angular (Frontend framework)
-- Angular CLI (Project scaffolding and build tools)
+- Angular
 - [Angular Material](https://material.angular.dev/) (Material Design components)
 - TypeScript (Main programming language)
 - HTML5 & CSS (UI structure and styling)
 - [APEXCHARTS](https://apexcharts.com/)
+- Google Icons + Google Fonts
 <!-- - RxJS (Reactive programming) -->
 - API's:
   - [Frankfurter](https://frankfurter.dev/) Exchange rates and currency data API
+  - [Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) open-source weather API and offers free access for non-commercial use.
   <!-- -  -->
 
 ## Development server

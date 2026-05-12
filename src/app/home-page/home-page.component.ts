@@ -4,7 +4,8 @@ import { StatCardComponent } from '../components/stat-card/stat-card.component';
 import { AreaChartComponent } from '../components/area-chart/area-chart.component';
 import { DonutChartComponent } from '../components/donut-chart/donut-chart.component';
 
-import { ExchangeRatesService } from '../services/exchange-rates-service.service';
+import { ExchangeRatesService } from '../services/exchange-rates.service';
+import { weatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home-page',
@@ -18,28 +19,32 @@ export class HomePageComponent implements OnInit {
   yesterdayRate!: number;
   changeRatePercent!: number;
 
+  temperature!: number;
+  changeTemperaturePercent!: number;
+
   loading: boolean = true;
 
-  constructor(private ExchangeRatesService: ExchangeRatesService) {}
+  constructor(
+    private ExchangeRatesService: ExchangeRatesService,
+    private TemperatureService: weatherService,
+  ) {}
 
   ngOnInit(): void {
-    this.getExchangeRatesData();
-  }
-
-  getExchangeRatesData() {
     const today = new Date();
-
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-
     const format = (d: Date) => d.toISOString().split('T')[0];
-
     const todayStr = format(today);
     const yesterdayStr = format(yesterday);
 
+    this.getExchangeRatesData(todayStr, yesterdayStr);
+    this.getWeatherData(todayStr);
+  }
+
+  getExchangeRatesData(todayStr: string, yesterdayStr: string) {
     // today
     this.ExchangeRatesService.getRateByDate(todayStr).subscribe((todayRes) => {
-      console.log(todayRes[0]);
+      // console.log(todayRes[0]);
 
       this.todayRate = todayRes[0].rate;
 
@@ -48,10 +53,10 @@ export class HomePageComponent implements OnInit {
         (yestRes) => {
           this.yesterdayRate = yestRes[0].rate;
 
-          console.log(yestRes[0]);
+          // console.log(yestRes[0]);
 
           this.calculateChange();
-          console.log(this.changeRatePercent);
+          // console.log(this.changeRatePercent);
         },
       );
 
@@ -66,5 +71,29 @@ export class HomePageComponent implements OnInit {
       ((this.todayRate - this.yesterdayRate) / this.yesterdayRate) * 100;
 
     this.changeRatePercent = Number(this.changeRatePercent.toFixed(2));
+  }
+
+  // temperature;
+  // changeTemperaturePercent;
+  getWeatherData(today: string) {
+    this.TemperatureService.getWeather(today).subscribe({
+      next: (data) => {
+        const currentHour = new Date().getHours();
+
+        const currentTemp = data.hourly.temperature_2m[currentHour];
+        const previousTemp = data.hourly.temperature_2m[currentHour - 1];
+
+        this.temperature = currentTemp;
+        const tempChange = (
+          ((currentTemp - previousTemp) / previousTemp) *
+          100
+        ).toFixed(1);
+
+        this.changeTemperaturePercent = parseInt(tempChange);
+      },
+      error(err) {
+        console.error(err);
+      },
+    });
   }
 }

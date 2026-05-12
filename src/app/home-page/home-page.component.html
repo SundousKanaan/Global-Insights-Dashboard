@@ -20,9 +20,13 @@
       <app-stat-card
         [title]="'Global Temperature'"
         [icon]="'Thermostat'"
-        [value]="'27°C'"
-        [change]="'▲ 1.2%'"
-        [changing]="'negative'"
+        [value]="temperature + '°C'"
+        [change]="
+          changeTemperaturePercent >= 0
+            ? '▲' + changeTemperaturePercent + '%'
+            : '▼' + changeTemperaturePercent + '%'
+        "
+        [changing]="changeTemperaturePercent >= 0 ? 'positive' : 'negative'"
         [colorClass]="'redCard'"
       ></app-stat-card>
     </div>
